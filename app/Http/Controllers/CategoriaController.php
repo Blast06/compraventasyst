@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Categoria;
 use Illuminate\Http\Request;
+use Response;
+
 
 class CategoriaController extends Controller
 {
@@ -32,6 +34,7 @@ class CategoriaController extends Controller
         $categoria->descripcion = $request->descripcion;
         $categoria->condicion = '1';
         $categoria->save();
+
     }
 
 
@@ -42,7 +45,7 @@ class CategoriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         $categoria =  Categoria::findOrFail($request->id);
         $categoria->nombre = $request->nombre;
